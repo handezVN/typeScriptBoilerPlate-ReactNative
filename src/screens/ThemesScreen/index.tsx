@@ -1,7 +1,7 @@
 import {SafeAreaView, View, FlatList} from 'react-native';
 import globalStyles from '../../constants/globalStyles';
 import {useDispatch, useSelector} from 'react-redux';
-import {setTheme} from '../SettingsScreen/slice';
+import {setTheme} from '../../store/settingSlice';
 import ItemWithIcon from '../../components/ItemWithIcon';
 import {useTranslation} from 'react-i18next';
 import {setValueInAsyncStorage} from '../../utils/asyncStorage';

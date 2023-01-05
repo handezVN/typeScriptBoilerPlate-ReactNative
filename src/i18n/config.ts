@@ -5,6 +5,7 @@ import RNRestart from 'react-native-restart';
 import { getLocales } from 'react-native-localize';
 import en from './en.json';
 import nl from './nl.json';
+import vn from './vn.json';
 import { getValueFromAsyncStorage } from '../utils/asyncStorage';
 
 const languageDetector:any = {
@@ -31,15 +32,15 @@ i18n
     .use(languageDetector)
     .use(initReactI18next)
     .init({
-        debug : true ,
         compatibilityJSON: 'v3',
         interpolation: { escapeValue: false }, // not needed for react as it escapes by default
         react: { useSuspense: false },
-        fallbackLng: 'en',
         resources: {
             en: { translation: en },
-            nl: { translation: nl }
-        }
+            nl: { translation: nl },
+            vn: { translation: vn}
+        },
+        keySeparator:false
         
     });
 

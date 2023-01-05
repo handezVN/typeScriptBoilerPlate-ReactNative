@@ -20,7 +20,8 @@ const initialState = {
     languages: [
         { id: 1, name: 'System Default', code: 'system_default', selected: true },
         { id: 2, name: 'English', code: 'en', selected: false },
-        { id: 3, name: 'Netherlands (Dutch)', code: 'nl', selected: false }
+        { id: 3, name: 'Netherlands (Dutch)', code: 'nl', selected: false },
+        { id: 4, name: 'VietNam', code: 'vn', selected: false }
     ]
 };
 
