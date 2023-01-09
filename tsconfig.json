@@ -3,17 +3,7 @@
   "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
-    "baseUrl": "src",
-    "paths": {
-      "@components/*" : ["components/*"],
-      "@constants/*": ["constants/*"],
-      "@i18n/*": ["i18n/*"],
-      "@navigations/*": ["navigations/*"],
-      "@screens/*": ["screens/*"],
-      "@store/*": ["store/*"],
-      "@utils/*": ["utils/*"],
-    },
-    "typeRoots": ["@types", "node_modules/@types"],
+    
     /* Completeness */
     "skipLibCheck": true         ,
                  

@@ -3,6 +3,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import ThemesScreen from '../screens/ThemesScreen';
 import LanguagesScreen from '../screens/LanguagesScreen';
 import {useTranslation} from 'react-i18next';
+import MeetingRoomTest from '../screens/UsersScreen/MeetingRoom';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,11 @@ const SettingsStackNavigation = () => {
         name="Languages"
         component={LanguagesScreen}
         options={{headerShown: true, title: `${t('languages')}`}}
+      />
+      <Stack.Screen
+        name="Zoom"
+        component={MeetingRoomTest}
+        options={{headerShown: true, title: 'Zoom'}}
       />
     </Stack.Navigator>
   );

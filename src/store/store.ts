@@ -3,6 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import globalSlice, { globalType } from './globalSlice';
 // import usersSaga from '../screens/UsersScreen/saga';
 import settingSlice, { SettingType } from './settingSlice';
+import rootReducer from './reducer/index'
 // group all reducers in a single reducer object
 export type globalStore  = {
     global : globalType,
@@ -11,7 +12,8 @@ export type globalStore  = {
 const reducers = {
     global: globalSlice,
     // users: usersSlice,
-    settings: settingSlice
+    settings: settingSlice,
+    // rootRecucers: rootReducer
 };
 
 // create sagaMiddleware

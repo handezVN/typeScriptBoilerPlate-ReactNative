@@ -34,6 +34,7 @@ const SettingsScreen = ({navigation}: any) => {
           leftIconName="notifications-outline"
           text={t('notification')}
         />
+
         <IconicItemWithText
           backgroundColor={colors.card}
           textColor={colors.text}
@@ -52,6 +53,16 @@ const SettingsScreen = ({navigation}: any) => {
           valueText={t([selectedLanguage.code])}
           onPress={() => {
             navigation.navigate('Languages');
+          }}
+        />
+        <IconicItemWithText
+          backgroundColor={colors.card}
+          textColor={colors.text}
+          leftIconName="language-outline"
+          keyText={'Zoom'}
+          valueText={'Zoom'}
+          onPress={() => {
+            navigation.navigate('Zoom');
           }}
         />
       </View>

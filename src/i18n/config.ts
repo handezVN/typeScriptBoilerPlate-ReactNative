@@ -31,7 +31,7 @@ i18n
     .use(languageDetector)
     .use(initReactI18next)
     .init({
-        debug : true ,
+        // debug : true ,
         compatibilityJSON: 'v3',
         interpolation: { escapeValue: false }, // not needed for react as it escapes by default
         react: { useSuspense: false },
