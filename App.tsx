@@ -45,6 +45,7 @@ import globalSlice, {globalType} from './src/store/globalSlice';
 import Loader from './src/components/Loader';
 import HomeScreen from './src/screens/HomeScreen';
 import HomeBottomNavigation from './src/navigations/HomeBottomNavigation';
+import {useAuth0, Auth0Provider} from 'react-native-auth0';
 const LightModeTheme = {
   ...DefaultTheme,
   dark: false,
@@ -110,7 +111,11 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <AppRoot />
+      <Auth0Provider
+        domain={'dev-1ch088fhjuvfv4p7.us.auth0.com'}
+        clientId={'Ft1CKsyEvaymLFRf5Uh4wbqYmai4NJAl'}>
+        <AppRoot />
+      </Auth0Provider>
     </Provider>
   );
 };

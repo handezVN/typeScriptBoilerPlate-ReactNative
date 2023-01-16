@@ -2,6 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import UsersScreen from '../screens/UsersScreen';
 import {useTranslation} from 'react-i18next';
 import UserDetailsScreen from '../screens/UserDetails';
+import LoginScreen from '../screens/UserDetails/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +21,7 @@ const UserStackNavigation = () => {
       screenOptions={{headerShown: false}}>
       <Stack.Screen
         name="Users"
-        component={UsersScreen}
+        component={LoginScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
