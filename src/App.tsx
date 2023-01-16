@@ -31,20 +31,20 @@ import {
   DefaultTheme,
   DarkTheme,
 } from '@react-navigation/native';
-import {DarkMode, LightMode} from './src/constants/colors';
+import {DarkMode, LightMode} from './constants/colors';
 import {Provider, useDispatch, useSelector} from 'react-redux';
-import {getValueFromAsyncStorage} from './src/utils/asyncStorage';
+import {getValueFromAsyncStorage} from './utils/asyncStorage';
 import {
   setLanguage,
   setTheme,
   SettingType,
   themeItem,
-} from './src/store/settingSlice';
-import store, {globalStore} from './src/store/store';
-import globalSlice, {globalType} from './src/store/globalSlice';
-import Loader from './src/components/Loader';
-import HomeScreen from './src/screens/HomeScreen';
-import HomeBottomNavigation from './src/navigations/HomeBottomNavigation';
+} from './store/settingSlice';
+import store, {globalStore} from './store/store';
+import globalSlice, {globalType} from './store/globalSlice';
+import Loader from './components/Loader';
+import HomeScreen from './screens/HomeScreen';
+import HomeBottomNavigation from './navigations/HomeBottomNavigation';
 const LightModeTheme = {
   ...DefaultTheme,
   dark: false,
@@ -56,7 +56,7 @@ const DarkModeTheme = {
   dark: true,
   ...DarkMode,
 };
-import i18n from './src/i18n/config';
+import i18n from './i18n/config';
 const AppRoot = () => {
   const colorScheme = useColorScheme();
 
