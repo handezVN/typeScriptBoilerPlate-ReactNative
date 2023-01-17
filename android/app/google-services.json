@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1023361931327",
+    "project_id": "authsocial-20d10",
+    "storage_bucket": "authsocial-20d10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023361931327:android:500357db2a910b1ab4408a",
+        "android_client_info": {
+          "package_name": "com.typescriptboilerplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1023361931327-dm1vab2ttgm6p537t622ejqq0bf8rbob.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.typescriptboilerplate",
+            "certificate_hash": "6420576c0b198792424aa18109af35fb4f7bd5ab"
+          }
+        },
+        {
+          "client_id": "1023361931327-i9c0luuc6d1omiu2i62fifuc3r3jd541.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvqel90RDLVTp-WEonW3Ql3CnaRLtazyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1023361931327-i9c0luuc6d1omiu2i62fifuc3r3jd541.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
