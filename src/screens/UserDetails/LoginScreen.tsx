@@ -5,13 +5,32 @@ import {
   statusCodes,
   GoogleSigninButton,
 } from '@react-native-google-signin/google-signin';
-import {LoginButton, AccessToken, Settings} from 'react-native-fbsdk-next';
+import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
+import auth from '@react-native-firebase/auth';
+
 GoogleSignin.configure({
   webClientId:
     '1023361931327-i9c0luuc6d1omiu2i62fifuc3r3jd541.apps.googleusercontent.com',
 });
-Settings.setAppID('APP ID');
 const LoginScreen = () => {
+  async function onFacebookButtonPress() {
+    // Attempt login with permissions
+    const result = await LoginManager.logInWithPermissions([
+      'public_profile',
+      'email',
+    ]);
+
+    if (result.isCancelled) {
+      throw 'User cancelled the login process';
+    }
+
+    // Once signed in, get the users AccesToken
+    const data = await AccessToken.getCurrentAccessToken();
+    console.log(data);
+    if (!data) {
+      throw 'Something went wrong obtaining access token';
+    }
+  }
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
@@ -35,20 +54,13 @@ const LoginScreen = () => {
       <Text>LoginScreen</Text>
       <Button title="Hello" onPress={() => signIn()} />
       <GoogleSigninButton />
-      <LoginButton
-        onLoginFinished={(error, result: any) => {
-          if (error) {
-            console.log('login has error: ' + result.error);
-          } else if (result.isCancelled) {
-            console.log('login is cancelled.');
-          } else {
-            console.log(result);
-            AccessToken.getCurrentAccessToken().then((data: any) => {
-              console.log(data.accessToken.toString());
-            });
-          }
-        }}
-        onLogoutFinished={() => console.log('logout.')}
+      <Button
+        title="Facebook Sign-In"
+        onPress={() =>
+          onFacebookButtonPress().then(() =>
+            console.log('Signed in with Facebook!'),
+          )
+        }
       />
     </SafeAreaView>
   );
