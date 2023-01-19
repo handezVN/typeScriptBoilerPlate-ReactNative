@@ -1,5 +1,12 @@
-import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {
+  Button,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import React, {useState} from 'react';
 import {
   GoogleSignin,
   statusCodes,
@@ -49,6 +56,24 @@ const LoginScreen = () => {
       }
     }
   };
+  const [confirm, setConfirm] = useState<any>(null);
+
+  const [code, setCode] = useState('');
+
+  // Handle the button press
+  async function signInWithPhoneNumber(phoneNumber: any) {
+    const confirmation: any = await auth().signInWithPhoneNumber(phoneNumber);
+    setConfirm(confirmation);
+  }
+
+  async function confirmCode() {
+    try {
+      console.log(confirm);
+      await confirm.confirm(code);
+    } catch (error) {
+      console.log('Invalid code.');
+    }
+  }
   return (
     <SafeAreaView>
       <Text>LoginScreen</Text>
@@ -62,6 +87,14 @@ const LoginScreen = () => {
           )
         }
       />
+      {!confirm && (
+        <Button
+          title="Phone Number Sign In"
+          onPress={() => signInWithPhoneNumber('+84797991707')}
+        />
+      )}
+      <TextInput value={code} onChangeText={text => setCode(text)} />
+      <Button title="Confirm Code" onPress={() => confirmCode()} />
     </SafeAreaView>
   );
 };
