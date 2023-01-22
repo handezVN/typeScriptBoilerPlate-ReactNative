@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, {useEffect, type PropsWithChildren} from 'react';
+import React, {useEffect, useState, type PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -57,9 +57,11 @@ const DarkModeTheme = {
   ...DarkMode,
 };
 import i18n from './i18n/config';
+import SplashScreen from 'react-native-splash-screen';
+import WelcomeScreen from 'screens/WelcomeScreen';
 const AppRoot = () => {
   const colorScheme = useColorScheme();
-
+  const [welCome, setWelcome] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -67,6 +69,10 @@ const AppRoot = () => {
     async function setSelectedTheme() {
       const selectedTheme = await getValueFromAsyncStorage('selected_theme');
       dispatch(setTheme(selectedTheme));
+    }
+    const isWelcome: any = getValueFromAsyncStorage('welcome');
+    if (!isWelcome) {
+      setWelcome(false);
     }
     // get and set user selected language in store
     async function setSelectedLanguage() {
@@ -77,6 +83,7 @@ const AppRoot = () => {
     }
     setSelectedTheme();
     setSelectedLanguage();
+    SplashScreen.hide();
   });
 
   const themes: any = useSelector(
@@ -96,7 +103,11 @@ const AppRoot = () => {
     <NavigationContainer
       theme={themeToSet === 'dark' ? DarkModeTheme : LightModeTheme}>
       <Loader visible={isLoading} />
-      <HomeBottomNavigation></HomeBottomNavigation>
+      {welCome ? (
+        <WelcomeScreen></WelcomeScreen>
+      ) : (
+        <HomeBottomNavigation></HomeBottomNavigation>
+      )}
     </NavigationContainer>
   );
 };

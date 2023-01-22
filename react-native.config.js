@@ -10,7 +10,7 @@ module.exports = {
 
 module.exports = {
   project: {
-    ios: {},
+    // ios: {},
     android: {},
   },
   assets: ['./src/assets/Fonts'],
