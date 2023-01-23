@@ -1,28 +1,44 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import {dimen_x} from 'utils/dimes';
+import React, {memo} from 'react';
+import {dimen_x, SCREEN_WIDTH} from 'utils/dimes';
 import {RobotoText} from 'components/TextStyle/RobotoText';
 
-const WelcomeItem = () => {
+type Props = {
+  title: string;
+  image: any;
+};
+
+const WelcomeItem = ({title, image}: Props) => {
   return (
-    <View style={{paddingHorizontal: dimen_x(44 / 375)}}>
-      <Image
-        source={require('../../assets/images/1.png')}
-        style={{width: '100%', height: 300}}
-        resizeMode="contain"
-      />
-      <Text></Text>
-      <RobotoText
-        style={{
-          fontSize: dimen_x(14 / 375),
-          fontWeight: '700',
-        }}>
-        Trồng cây một bước tiến tới cuộc sống lành mạnh
-      </RobotoText>
+    <View style={{width: SCREEN_WIDTH}}>
+      <View style={{paddingHorizontal: dimen_x(44 / 375)}}>
+        {image && (
+          <Image
+            source={image}
+            style={{
+              width: '100%',
+              height: 300,
+            }}
+            resizeMode="contain"
+          />
+        )}
+      </View>
+      <View style={{paddingHorizontal: dimen_x(32 / 375)}}>
+        <RobotoText
+          style={{
+            fontSize: dimen_x(14 / 375),
+            fontWeight: '500',
+            fontFamily: 'Roboto',
+            color: 'black',
+            alignItems: 'center',
+          }}>
+          {title}
+        </RobotoText>
+      </View>
     </View>
   );
 };
 
-export default WelcomeItem;
+export default memo(WelcomeItem);
 
 const styles = StyleSheet.create({});

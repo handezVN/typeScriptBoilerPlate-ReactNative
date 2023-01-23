@@ -10,6 +10,7 @@
 
 import React, {useEffect, useState, type PropsWithChildren} from 'react';
 import {
+  Modal,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -59,6 +60,7 @@ const DarkModeTheme = {
 import i18n from './i18n/config';
 import SplashScreen from 'react-native-splash-screen';
 import WelcomeScreen from 'screens/WelcomeScreen';
+import AuthStackNavigation from 'navigations/AuthStackNavigation';
 const AppRoot = () => {
   const colorScheme = useColorScheme();
   const [welCome, setWelcome] = useState(true);
@@ -103,11 +105,10 @@ const AppRoot = () => {
     <NavigationContainer
       theme={themeToSet === 'dark' ? DarkModeTheme : LightModeTheme}>
       <Loader visible={isLoading} />
-      {welCome ? (
-        <WelcomeScreen></WelcomeScreen>
-      ) : (
-        <HomeBottomNavigation></HomeBottomNavigation>
-      )}
+      <Modal visible={welCome}>
+        <WelcomeScreen onPress={() => setWelcome(false)}></WelcomeScreen>
+      </Modal>
+      <AuthStackNavigation></AuthStackNavigation>
     </NavigationContainer>
   );
 };
