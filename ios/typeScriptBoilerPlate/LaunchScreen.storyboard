@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -11,36 +11,35 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Group 876" translatesAutoresizingMaskIntoConstraints="NO" id="YyH-rk-5io">
-                                <rect key="frame" x="67" y="163" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ellipse 110" translatesAutoresizingMaskIntoConstraints="NO" id="L1J-dN-cYn">
-                                <rect key="frame" x="0.0" y="352" width="375" height="315"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Frame (2)" translatesAutoresizingMaskIntoConstraints="NO" id="NUs-0q-ew7">
-                                <rect key="frame" x="0.0" y="462" width="375" height="205"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="x4f-3d-R1p">
+                                <rect key="frame" x="0.0" y="46.666666666666686" width="430" height="839"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="430" id="19D-i5-Uin"/>
+                                    <constraint firstAttribute="height" constant="839" id="SIh-A9-BKf"/>
+                                    <constraint firstAttribute="width" secondItem="x4f-3d-R1p" secondAttribute="height" multiplier="430:839" id="eoT-89-y0M"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="x4f-3d-R1p" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bDB-VD-Zoc"/>
+                            <constraint firstItem="x4f-3d-R1p" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lqQ-7N-Cze"/>
+                        </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="428" height="926"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.232558139534881" y="373.39055793991417"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Ellipse 110" width="1432" height="1432"/>
-        <image name="Frame (2)" width="1500" height="824"/>
-        <image name="Group 876" width="792" height="552"/>
+        <image name="1 (1)" width="1500" height="3248"/>
     </resources>
 </document>

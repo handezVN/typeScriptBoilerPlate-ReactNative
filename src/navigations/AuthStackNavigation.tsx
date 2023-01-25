@@ -20,6 +20,7 @@ const AuthStackNavigation = () => {
         component={AuthScreen}
         options={{headerShown: false, title: `${t('auth')}`}}
       />
+
       <Stack.Screen
         name="HomeScreen"
         component={HomeBottomNavigation}
