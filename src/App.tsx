@@ -61,11 +61,19 @@ import i18n from './i18n/config';
 import SplashScreen from 'react-native-splash-screen';
 import WelcomeScreen from 'screens/WelcomeScreen';
 import AuthStackNavigation from 'navigations/AuthStackNavigation';
+import {
+  NotificationListener,
+  requestUserPermission,
+} from 'utils/pushnotification_helper';
+import messaging from '@react-native-firebase/messaging';
+
 const AppRoot = () => {
   const colorScheme = useColorScheme();
   const [welCome, setWelcome] = useState(true);
   const dispatch = useDispatch();
-
+  async function registerAppWithFCM() {
+    await messaging().registerDeviceForRemoteMessages();
+  }
   useEffect(() => {
     // get and set user selected theme in store
     async function setSelectedTheme() {
@@ -87,7 +95,11 @@ const AppRoot = () => {
     setSelectedLanguage();
     SplashScreen.hide();
   });
-
+  useEffect(() => {
+    // registerAppWithFCM();
+    requestUserPermission();
+    NotificationListener();
+  }, []);
   const themes: any = useSelector(
     (state: globalStore) => state.settings.themes,
   );
