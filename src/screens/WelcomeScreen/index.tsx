@@ -16,6 +16,7 @@ import {useTheme} from '@react-navigation/native';
 import Image1 from '../../assets/images/1.png';
 import Image2 from '../../assets/images/2.png';
 import Image3 from '../../assets/images/3.png';
+import {Colors} from 'utils/useColor';
 
 const Data = [
   {
@@ -37,7 +38,6 @@ const Data = [
   },
 ];
 const WelcomeScreen = ({onPress}: {onPress: any}) => {
-  const {colors} = useTheme();
   const [index, setIndex] = useState<number>(0);
   const ref: any = useRef();
   const onClick = () => {
@@ -82,17 +82,17 @@ const WelcomeScreen = ({onPress}: {onPress: any}) => {
             <View
               style={[
                 styles.pageStyle,
-                index === 0 && {backgroundColor: colors.primary, width: 24},
+                index === 0 && {backgroundColor: Colors.primary, width: 24},
               ]}></View>
             <View
               style={[
                 styles.pageStyle,
-                index === 1 && {backgroundColor: colors.primary, width: 24},
+                index === 1 && {backgroundColor: Colors.primary, width: 24},
               ]}></View>
             <View
               style={[
                 styles.pageStyle,
-                index === 2 && {backgroundColor: colors.primary, width: 24},
+                index === 2 && {backgroundColor: Colors.primary, width: 24},
               ]}></View>
           </View>
           <TouchableOpacity

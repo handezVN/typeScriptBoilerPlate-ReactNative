@@ -8,8 +8,8 @@ import {
 import React, {useState} from 'react';
 import {RobotoText} from 'components/TextStyle/RobotoText';
 import {dimen_y} from 'utils/dimes';
-import {Colors} from 'constants/colors';
 import Icon from 'react-native-vector-icons/Feather';
+import {Colors} from 'utils/useColor';
 const InputComponent = ({
   title,
   placeholder,

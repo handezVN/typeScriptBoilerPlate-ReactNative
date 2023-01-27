@@ -6,7 +6,7 @@ export const LightMode = {
       text: '#1D1D1D',
       border: 'rgb(199, 199, 204)',
       notification: 'rgb(255, 69, 58)',
-      
+      grey: '#F5F5F6'
     },
   };
   
@@ -18,10 +18,6 @@ export const LightMode = {
       text: '#FFFFFF',
       border: 'rgb(199, 199, 204)',
       notification: 'rgb(255, 69, 58)',
-      
+      grey: '#F5F5F6'
     },
   };
-
-  export const Colors= {
-    grey: '#F5F5F6'
-  }

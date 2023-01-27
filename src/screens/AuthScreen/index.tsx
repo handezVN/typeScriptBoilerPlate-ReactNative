@@ -14,7 +14,6 @@ import loginBackground from '../../assets/images/login-background.png';
 import loginBackground2 from '../../assets/images/login-android.png';
 import {dimen_y, SCREEN_HEIGHT, SCREEN_WIDTH} from 'utils/dimes';
 import {useTheme} from '@react-navigation/native';
-import {Colors} from 'constants/colors';
 
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 import {RobotoText} from 'components/TextStyle/RobotoText';
@@ -28,6 +27,9 @@ const AuthScreen = ({navigation}: any) => {
   const {colors} = useTheme();
   const [isLogin, setIsLogin] = useState(true);
   const [isSms, setIsSms] = useState(false);
+  const onLogin = () => {
+    navigation.navigate('HomeScreen');
+  };
   const RegisterForm = ({onPress}: {onPress: any}) => {
     return (
       <View>
@@ -96,7 +98,7 @@ const AuthScreen = ({navigation}: any) => {
           </View>
           <Button
             title="Đăng nhập"
-            onClick={() => navigation.navigate('HomeScreen')}
+            onClick={() => onLogin()}
             style={{marginTop: 32}}></Button>
         </View>
       </>
@@ -181,7 +183,7 @@ const AuthScreen = ({navigation}: any) => {
             ) : (
               <RegisterForm onPress={() => setIsSms(true)} />
             )}
-            <SocialForm />
+            <SocialForm onLogin={onLogin} />
             <View
               style={{
                 position: 'absolute',

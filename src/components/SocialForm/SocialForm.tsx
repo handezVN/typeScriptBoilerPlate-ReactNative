@@ -21,12 +21,12 @@ GoogleSignin.configure({
   webClientId:
     '1023361931327-i9c0luuc6d1omiu2i62fifuc3r3jd541.apps.googleusercontent.com',
 });
-const SocialForm = () => {
+const SocialForm = ({onLogin}: {onLogin: any}) => {
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      console.log(userInfo);
+      onLogin();
     } catch (error: any) {
       console.log('error', error);
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -53,7 +53,8 @@ const SocialForm = () => {
 
     // Once signed in, get the users AccesToken
     const data = await AccessToken.getCurrentAccessToken();
-    console.log(data);
+    // console.log(data);
+    onLogin();
     if (!data) {
       throw 'Something went wrong obtaining access token';
     }
