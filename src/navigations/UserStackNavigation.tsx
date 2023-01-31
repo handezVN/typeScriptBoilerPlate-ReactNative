@@ -21,7 +21,7 @@ const UserStackNavigation = () => {
       screenOptions={{headerShown: false}}>
       <Stack.Screen
         name="Users"
-        component={LoginScreen}
+        component={UserDetailsScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
