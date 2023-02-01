@@ -15,7 +15,8 @@
 6. Start the **Metro bundler/packager** with `yarn start`
 7. Connect an **Android / iOS** device or **Android Emulator / iOS Simulator**
 8. Run `yarn android` for **Android** or `yarn ios` for **iOS**
-   <br>
+9. Change Project name run `npx react-native-rename "Project Name" `
+10. <br>
 
 ## Features:
 

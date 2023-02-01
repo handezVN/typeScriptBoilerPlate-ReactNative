@@ -14,7 +14,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "typeScriptBoilerPlate";
+    return "BoilerPlateReactNative";
   }
    @Override
     protected void onCreate(Bundle savedInstanceState) {

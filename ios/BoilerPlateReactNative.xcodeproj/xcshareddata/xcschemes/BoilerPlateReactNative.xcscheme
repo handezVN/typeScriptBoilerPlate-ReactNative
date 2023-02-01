@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "typeScriptBoilerPlate.app"
-               BlueprintName = "typeScriptBoilerPlate"
-               ReferencedContainer = "container:typeScriptBoilerPlate.xcodeproj">
+               BuildableName = "BoilerPlateReactNative.app"
+               BlueprintName = "BoilerPlateReactNative"
+               ReferencedContainer = "container:BoilerPlateReactNative.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "typeScriptBoilerPlateTests.xctest"
-               BlueprintName = "typeScriptBoilerPlateTests"
-               ReferencedContainer = "container:typeScriptBoilerPlate.xcodeproj">
+               BuildableName = "BoilerPlateReactNativeTests.xctest"
+               BlueprintName = "BoilerPlateReactNativeTests"
+               ReferencedContainer = "container:BoilerPlateReactNative.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "typeScriptBoilerPlate.app"
-            BlueprintName = "typeScriptBoilerPlate"
-            ReferencedContainer = "container:typeScriptBoilerPlate.xcodeproj">
+            BuildableName = "BoilerPlateReactNative.app"
+            BlueprintName = "BoilerPlateReactNative"
+            ReferencedContainer = "container:BoilerPlateReactNative.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "typeScriptBoilerPlate.app"
-            BlueprintName = "typeScriptBoilerPlate"
-            ReferencedContainer = "container:typeScriptBoilerPlate.xcodeproj">
+            BuildableName = "BoilerPlateReactNative.app"
+            BlueprintName = "BoilerPlateReactNative"
+            ReferencedContainer = "container:BoilerPlateReactNative.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
