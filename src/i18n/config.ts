@@ -4,7 +4,6 @@ import { initReactI18next } from 'react-i18next';
 import RNRestart from 'react-native-restart';
 import { getLocales } from 'react-native-localize';
 import en from './en.json';
-import nl from './nl.json';
 import vn from './vn.json';
 import { getValueFromAsyncStorage } from '../utils/asyncStorage';
 
@@ -37,7 +36,6 @@ i18n
         react: { useSuspense: false },
         resources: {
             en: { translation: en },
-            nl: { translation: nl },
             vn: { translation: vn}
         },
         keySeparator:false

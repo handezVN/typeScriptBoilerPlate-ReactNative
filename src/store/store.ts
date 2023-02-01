@@ -10,7 +10,6 @@ export type globalStore  = {
 }
 const reducers = {
     global: globalSlice,
-    // users: usersSlice,
     settings: settingSlice
 };
 

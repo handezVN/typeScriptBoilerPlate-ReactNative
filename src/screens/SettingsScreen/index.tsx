@@ -28,12 +28,7 @@ const SettingsScreen = ({navigation}: any) => {
             {t('settings')}
           </Text>
         </View>
-        <IconicItemWithSwitch
-          backgroundColor={colors.card}
-          textColor={colors.text}
-          leftIconName="notifications-outline"
-          text={t('notification')}
-        />
+
         <IconicItemWithText
           backgroundColor={colors.card}
           textColor={colors.text}

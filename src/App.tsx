@@ -9,23 +9,9 @@
  */
 
 import React, {useEffect, type PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {StyleSheet, useColorScheme} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {
   NavigationContainer,
   DefaultTheme,
@@ -45,6 +31,7 @@ import globalSlice, {globalType} from './store/globalSlice';
 import Loader from './components/Loader';
 import HomeScreen from './screens/HomeScreen';
 import HomeBottomNavigation from './navigations/HomeBottomNavigation';
+import SplashScreen from 'react-native-splash-screen';
 const LightModeTheme = {
   ...DefaultTheme,
   dark: false,
@@ -77,6 +64,7 @@ const AppRoot = () => {
     }
     setSelectedTheme();
     setSelectedLanguage();
+    SplashScreen.hide();
   });
 
   const themes: any = useSelector(
@@ -85,10 +73,8 @@ const AppRoot = () => {
   const selectedTheme = themes.find(
     (item: themeItem) => item.selected === true,
   );
-  let themeToSet = selectedTheme.code;
-  if (themeToSet === 'system_default') {
-    themeToSet = colorScheme;
-  }
+  console.log('colors', selectedTheme);
+  let themeToSet = selectedTheme && selectedTheme.code;
 
   const {isLoading} = useSelector((state: globalStore) => state.global);
 

@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 // import SettingsStackScreen from './SettingsStackNavigation';
 import {useTranslation} from 'react-i18next';
 import {useTheme} from '@react-navigation/native';
-import HomeScreen from '../screens/HomeScreen';
 import UserStackNavigation from './UserStackNavigation';
 import SettingsStackNavigation from './SettingsStackNavigation';
 
@@ -46,11 +45,6 @@ const HomeBottomNavigation = () => {
         name="SettingsStack"
         component={SettingsStackNavigation}
         options={{headerShown: false, title: `${t('settings')}`}}
-      />
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{headerShown: false, title: `${t('feedback')}`}}
       />
     </Tab.Navigator>
   );

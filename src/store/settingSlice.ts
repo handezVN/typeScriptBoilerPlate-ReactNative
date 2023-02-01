@@ -13,15 +13,12 @@ export type SettingType = {
 
 const initialState = {
     themes: [
-        { id: 1, name: 'System Default', code: 'system_default', selected: true },
-        { id: 2, name: 'Light Mode', code: 'light', selected: false },
-        { id: 3, name: 'Dark Mode', code: 'dark', selected: false }
+        { id: 1, name: 'Light Mode', code: 'light', selected: true },
+        { id: 2, name: 'Dark Mode', code: 'dark', selected: false }
     ],
     languages: [
-        { id: 1, name: 'System Default', code: 'system_default', selected: true },
-        { id: 2, name: 'English', code: 'en', selected: false },
-        { id: 3, name: 'Netherlands (Dutch)', code: 'nl', selected: false },
-        { id: 4, name: 'VietNam', code: 'vn', selected: false }
+        { id: 1, name: 'English', code: 'en', selected: true },
+        { id: 2, name: 'VietNam', code: 'vn', selected: false }
     ]
 };
 
@@ -32,7 +29,7 @@ const settingsSlice = createSlice({
         setTheme: (state, action) => {
             let payload = action.payload;
             if (!payload) {
-                payload = 'system_default';
+                payload = 'light';
             }
             let themes = state.themes;
             themes.forEach((item) => {
@@ -42,7 +39,7 @@ const settingsSlice = createSlice({
         setLanguage: (state, action) => {
             let payload = action.payload;
             if (!payload) {
-                payload = 'system_default';
+                payload = 'en';
             }
             let languages = state.languages;
             languages.forEach((item) => {
