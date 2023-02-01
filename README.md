@@ -45,6 +45,19 @@
 11. [React Native Async Storage](https://github.com/react-native-async-storage/async-storage)
     <br>
 
+## How it looks
+
+<table>
+  <tr>
+   <td>Light Mode</td>
+   <td>Dark Mode</td>
+  </tr>
+  <tr>
+    <td valign="top"><img width="250" height="500" src="https://github.com/ar9t4/react-native-boilerplate/blob/main/screenshots/light/lm.gif"></td>
+    <td valign="top"><img width="250" height="500" src="https://github.com/ar9t4/react-native-boilerplate/blob/main/screenshots/dark/dm.gif"></td>
+  </tr>
+</table>
+<br>
 ## Contribution Guidelines
 
 **PR's** created as per [Offical Guidelines](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) are always welcome.
