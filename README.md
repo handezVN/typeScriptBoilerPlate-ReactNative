@@ -77,4 +77,4 @@
 ## Preferences
 
 <br>
-Modify this Project to TypeScript from [react-native-boilerplate](https://github.com/ar9t4/react-native-boilerplate).
+Modify this Project from JavaScript to TypeScript from [react-native-boilerplate](https://github.com/ar9t4/react-native-boilerplate).
