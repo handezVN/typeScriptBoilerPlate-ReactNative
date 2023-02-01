@@ -7,10 +7,11 @@ import {useTranslation} from 'react-i18next';
 import {setValueInAsyncStorage} from '../../utils/asyncStorage';
 import {useTheme} from '@react-navigation/native';
 import {globalStore} from '../../store/store';
+import {DarkMode, LightMode} from 'constants/colors';
 
 const ThemesScreen = ({navigation}: any) => {
-  const {colors} = useTheme();
-
+  const {dark} = useTheme();
+  const Colors = dark ? DarkMode.colors : LightMode.colors;
   const dispatch = useDispatch();
   const {themes} = useSelector((state: globalStore) => state.settings);
 
@@ -24,8 +25,8 @@ const ThemesScreen = ({navigation}: any) => {
           data={themes}
           renderItem={({item, index}) => (
             <ItemWithIcon
-              backgroundColor={colors.card}
-              textColor={colors.text}
+              backgroundColor={Colors.card}
+              textColor={Colors.text}
               text={item.name}
               iconName={
                 item.selected ? 'checkmark-circle' : 'checkmark-circle-outline'

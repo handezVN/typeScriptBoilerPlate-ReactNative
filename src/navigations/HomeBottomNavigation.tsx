@@ -8,11 +8,13 @@ import {useTranslation} from 'react-i18next';
 import {useTheme} from '@react-navigation/native';
 import UserStackNavigation from './UserStackNavigation';
 import SettingsStackNavigation from './SettingsStackNavigation';
+import {DarkMode, LightMode} from 'constants/colors';
 
 const Tab = createBottomTabNavigator();
 
 const HomeBottomNavigation = () => {
-  const {colors} = useTheme();
+  const {dark} = useTheme();
+  const Colors = dark ? DarkMode.colors : LightMode.colors;
   const {t} = useTranslation();
   return (
     <Tab.Navigator
@@ -33,7 +35,7 @@ const HomeBottomNavigation = () => {
           }
           return <Icon name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: colors.text,
+        tabBarActiveTintColor: Colors.text,
         tabBarInactiveTintColor: 'gray',
       })}>
       <Tab.Screen

@@ -8,12 +8,14 @@ import {useSelector} from 'react-redux';
 import {useTheme} from '@react-navigation/native';
 import {globalStore} from '../../store/store';
 import {languageItem, themeItem} from '../../store/settingSlice';
+import {DarkMode, LightMode} from 'constants/colors';
 
 const SettingsScreen = ({navigation}: any) => {
-  const {colors} = useTheme();
   const {themes, languages} = useSelector(
     (state: globalStore) => state.settings,
   );
+  const {dark} = useTheme();
+  const Colors = dark ? DarkMode.colors : LightMode.colors;
   const {t} = useTranslation();
   const selectedTheme: themeItem = themes.find(item => item.selected === true)!;
   const selectedLanguage: languageItem = languages.find(
@@ -23,15 +25,15 @@ const SettingsScreen = ({navigation}: any) => {
     <SafeAreaView>
       <View style={globalStyles.containerPadding16Style}>
         <View style={globalStyles.headerStyle}>
-          <Icon name="settings" size={24} color={colors.text} />
-          <Text style={{...globalStyles.headerTextStyle, color: colors.text}}>
+          <Icon name="settings" size={24} color={Colors.text} />
+          <Text style={{...globalStyles.headerTextStyle, color: Colors.text}}>
             {t('settings')}
           </Text>
         </View>
 
         <IconicItemWithText
-          backgroundColor={colors.card}
-          textColor={colors.text}
+          backgroundColor={Colors.card}
+          textColor={Colors.text}
           leftIconName="color-palette-outline"
           keyText={t('theme')}
           valueText={t([selectedTheme.code])}
@@ -40,8 +42,8 @@ const SettingsScreen = ({navigation}: any) => {
           }}
         />
         <IconicItemWithText
-          backgroundColor={colors.card}
-          textColor={colors.text}
+          backgroundColor={Colors.card}
+          textColor={Colors.text}
           leftIconName="language-outline"
           keyText={t('language')}
           valueText={t([selectedLanguage.code])}

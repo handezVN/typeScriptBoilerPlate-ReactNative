@@ -9,7 +9,7 @@
  */
 
 import React, {useEffect, type PropsWithChildren} from 'react';
-import {StyleSheet, useColorScheme} from 'react-native';
+import {StatusBar, StyleSheet, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {
@@ -29,7 +29,6 @@ import {
 import store, {globalStore} from './store/store';
 import globalSlice, {globalType} from './store/globalSlice';
 import Loader from './components/Loader';
-import HomeScreen from './screens/HomeScreen';
 import HomeBottomNavigation from './navigations/HomeBottomNavigation';
 import SplashScreen from 'react-native-splash-screen';
 const LightModeTheme = {
@@ -81,6 +80,10 @@ const AppRoot = () => {
   return (
     <NavigationContainer
       theme={themeToSet === 'dark' ? DarkModeTheme : LightModeTheme}>
+      <StatusBar
+        barStyle={
+          themeToSet === 'dark' ? 'light-content' : 'dark-content'
+        }></StatusBar>
       <Loader visible={isLoading} />
       <HomeBottomNavigation></HomeBottomNavigation>
     </NavigationContainer>

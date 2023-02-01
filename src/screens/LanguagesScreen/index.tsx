@@ -8,10 +8,11 @@ import {setValueInAsyncStorage} from '../../utils/asyncStorage';
 import {useTheme} from '@react-navigation/native';
 import {globalStore} from '../../store/store';
 import {languageItem} from '../../store/settingSlice';
+import {DarkMode, LightMode} from 'constants/colors';
 
 const LanguagesScreen = ({navigation}: any) => {
-  const {colors} = useTheme();
-
+  const {dark} = useTheme();
+  const Colors = dark ? DarkMode.colors : LightMode.colors;
   const dispatch = useDispatch();
   const {languages} = useSelector((state: globalStore) => state.settings);
 
@@ -30,8 +31,8 @@ const LanguagesScreen = ({navigation}: any) => {
   const renderItem = ({item, index}: renderItemProps) => {
     return (
       <ItemWithIcon
-        backgroundColor={colors.card}
-        textColor={colors.text}
+        backgroundColor={Colors.card}
+        textColor={Colors.text}
         text={item.name}
         iconName={
           item.selected ? 'checkmark-circle' : 'checkmark-circle-outline'
