@@ -28,6 +28,14 @@
 6. React Native AsyncStorage is configured
 7. Multi-Lingual support
 8. Dark Theme support
+
+## Advanced:
+
+1. [Login with Auth0](https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/LoginWithAuth0)
+2. [Login With Firebase](<https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/LoginWithFireBase(Google)>)
+3. [Music Player](https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/MusicPlayer)
+4. [zoomClone](https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/zoomClone)
+5. [Welcome Screen and Login with Firebase Template (Google, Facebook)](https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/PlantEcommerce)
    <br>
 
 ## Libraries and Node Packages:
@@ -56,7 +64,7 @@
   <tr>
     <td valign="top"><img width="250" height="500" src="https://github.com/ar9t4/react-native-boilerplate/blob/main/screenshots/light/lm.gif"></td>
     <td valign="top"><img width="250" height="500" src="https://github.com/ar9t4/react-native-boilerplate/blob/main/screenshots/dark/dm.gif"></td>
-     <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/master/src/assets/ScreenShot/ezgif.com-gif-maker.gif"></td>
+     <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/blob/master/src/assets/ScreenShot/ezgif.com-gif-maker.gif"></td>
   </tr>
 </table>
 <br>
