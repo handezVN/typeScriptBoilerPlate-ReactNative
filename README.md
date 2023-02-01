@@ -61,4 +61,5 @@
 ## Contribution Guidelines
 
 **PR's** created as per [Offical Guidelines](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) are always welcome.
-**PR's** Modify this Project to TypeScript from [react-native-boilerplate] (https://github.com/ar9t4/react-native-boilerplate).
+<br>
+**PR's** Modify this Project to TypeScript from [react-native-boilerplate](https://github.com/ar9t4/react-native-boilerplate).
