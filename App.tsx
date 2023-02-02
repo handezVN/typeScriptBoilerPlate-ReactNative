@@ -50,7 +50,6 @@ const LightModeTheme = {
   dark: false,
   ...LightMode,
 };
-
 const DarkModeTheme = {
   ...DarkTheme,
   dark: true,

@@ -1,7 +1,7 @@
 import { mediaDevices, MediaStream } from "react-native-webrtc"
 
 
-const getLocalStream = (): Promise<MediaStream> => new Promise((resolve, reject) => {
+const getLocalStream = ({isAudio,isVideo}:{isAudio:boolean , isVideo:boolean}): Promise<MediaStream> => new Promise((resolve, reject) => {
     mediaDevices.enumerateDevices().then((sourceInfos: any) => {
         let videoSourceId;
         for (let i = 0; i < sourceInfos.length; i++) {
@@ -11,14 +11,14 @@ const getLocalStream = (): Promise<MediaStream> => new Promise((resolve, reject)
             }
         }
         mediaDevices.getUserMedia({
-            audio: false,
-            video: {
+            audio: isAudio,
+            video: isVideo ? {
                 width: 640,
                 height: 480,
                 frameRate: 30,
                 facingMode: "user",
                 deviceId: videoSourceId
-            }
+            }:false
         })
             .then(stream => {
                 resolve(stream as MediaStream)
