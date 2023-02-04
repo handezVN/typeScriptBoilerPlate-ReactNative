@@ -2,6 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import UsersScreen from '../screens/UsersScreen';
 import {useTranslation} from 'react-i18next';
 import UserDetailsScreen from '../screens/UserDetails';
+import MeetingRoomTest from '../screens/UsersScreen/MeetingRoom';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,9 +25,9 @@ const UserStackNavigation = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="UserDetails"
-        component={UserDetailsScreen}
-        options={{headerShown: true, title: `${t('user_details')}`}}
+        name="Zoom"
+        component={MeetingRoomTest}
+        options={{headerShown: true, title: 'Zoom'}}
       />
     </Stack.Navigator>
   );

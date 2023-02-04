@@ -29,11 +29,7 @@ const SettingsStackNavigation = () => {
         component={LanguagesScreen}
         options={{headerShown: true, title: `${t('languages')}`}}
       />
-      <Stack.Screen
-        name="Zoom"
-        component={MeetingRoomTest}
-        options={{headerShown: true, title: 'Zoom'}}
-      />
+      
     </Stack.Navigator>
   );
 };

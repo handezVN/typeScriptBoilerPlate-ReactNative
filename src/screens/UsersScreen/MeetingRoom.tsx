@@ -9,6 +9,7 @@ import {
   ScrollView,
   StyleSheet,
   Button,
+  Clipboard
 } from 'react-native';
 import React, {useState, useEffect, Fragment, useRef} from 'react';
 import io, {Socket} from 'socket.io-client';
@@ -16,7 +17,9 @@ import {getLocalStream} from '../../utils/mediaDevices';
 import Peer from 'react-native-peerjs';
 import {mediaDevices, MediaStream} from 'react-native-webrtc';
 import {RTCView} from 'react-native-webrtc';
-const MeetingRoomTest = ({navigation}: any) => {
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Toast from 'react-native-toast-message';
+const MeetingRoomTest = ({navigation,route}: any) => {
   const [local, setLocal] = useState<any>();
   const socketRef: any = useRef();
   const [streams, setStreams] = useState<any[]>([]);
@@ -31,10 +34,18 @@ const MeetingRoomTest = ({navigation}: any) => {
     secure: false,
     // debug: 3,
   });
+  const copyToClipboard = () => {
+    Toast.show({
+      type: 'success',
+      text1: `Đã copy ${roomID}`,
+    });
+    Clipboard.setString(roomID);
+    
+  };
   peerServer.on('connection', (e: any) => console.log('connection'));
   peerServer.on('error', console.log);
-
-  const roomID = '12317239812ajdszxctyy';
+  console.log(route)
+  const roomID = route.params.roomID;
   const CallStream = (stream: any) => {
     peerServer.on('call', (call: any) => {
       console.log('peer call ');
@@ -46,7 +57,7 @@ const MeetingRoomTest = ({navigation}: any) => {
     });
   };
   useEffect(() => {
-    socketRef.current = io('http://192.168.2.209:8000', {
+    socketRef.current = io('http://192.168.1.7:8000', {
       forceNew: true,
     });
     socketRef.current.on('connection', () => console.log('connection'));
@@ -132,6 +143,7 @@ const MeetingRoomTest = ({navigation}: any) => {
 
   return (
     <ScrollView>
+      
       <RTCView
         style={[
           {
@@ -182,6 +194,10 @@ const MeetingRoomTest = ({navigation}: any) => {
             // Handle Error
           }
         }}></Button>
+        <TouchableOpacity onPress={copyToClipboard}>
+          <Text>Room Code : {roomID} <Icon name="content-copy" size={24} ></Icon></Text> 
+        </TouchableOpacity>
+        <Toast></Toast>
     </ScrollView>
   );
 };
