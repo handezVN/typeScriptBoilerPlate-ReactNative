@@ -9,7 +9,7 @@ import {
   ScrollView,
   StyleSheet,
   Button,
-  Clipboard
+  Clipboard,
 } from 'react-native';
 import React, {useState, useEffect, Fragment, useRef} from 'react';
 import io, {Socket} from 'socket.io-client';
@@ -19,7 +19,7 @@ import {mediaDevices, MediaStream} from 'react-native-webrtc';
 import {RTCView} from 'react-native-webrtc';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Toast from 'react-native-toast-message';
-const MeetingRoomTest = ({navigation,route}: any) => {
+const MeetingRoomTest = ({navigation, route}: any) => {
   const [local, setLocal] = useState<any>();
   const socketRef: any = useRef();
   const [streams, setStreams] = useState<any[]>([]);
@@ -40,11 +40,10 @@ const MeetingRoomTest = ({navigation,route}: any) => {
       text1: `Đã copy ${roomID}`,
     });
     Clipboard.setString(roomID);
-    
   };
   peerServer.on('connection', (e: any) => console.log('connection'));
   peerServer.on('error', console.log);
-  console.log(route)
+  console.log(route);
   const roomID = route.params.roomID;
   const CallStream = (stream: any) => {
     peerServer.on('call', (call: any) => {
@@ -57,7 +56,7 @@ const MeetingRoomTest = ({navigation,route}: any) => {
     });
   };
   useEffect(() => {
-    socketRef.current = io('http://192.168.1.7:8000', {
+    socketRef.current = io('https://clonezoomserver.onrender.com', {
       forceNew: true,
     });
     socketRef.current.on('connection', () => console.log('connection'));
@@ -143,7 +142,6 @@ const MeetingRoomTest = ({navigation,route}: any) => {
 
   return (
     <ScrollView>
-      
       <RTCView
         style={[
           {
@@ -194,10 +192,12 @@ const MeetingRoomTest = ({navigation,route}: any) => {
             // Handle Error
           }
         }}></Button>
-        <TouchableOpacity onPress={copyToClipboard}>
-          <Text>Room Code : {roomID} <Icon name="content-copy" size={24} ></Icon></Text> 
-        </TouchableOpacity>
-        <Toast></Toast>
+      <TouchableOpacity onPress={copyToClipboard}>
+        <Text>
+          Room Code : {roomID} <Icon name="content-copy" size={24}></Icon>
+        </Text>
+      </TouchableOpacity>
+      <Toast></Toast>
     </ScrollView>
   );
 };
