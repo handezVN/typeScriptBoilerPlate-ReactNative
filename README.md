@@ -53,8 +53,8 @@
    <td>Join Room</td>
   </tr>
   <tr>
-    <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/zoomClone/src/assets/ScreenShot/1.gif"></td>
-    <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/zoomClone/src/assets/ScreenShot/2.gif"></td>
-     <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/zoomClone/src/assets/ScreenShot/3.gif"></td>
+    <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/blob/zoomClone/src/assets/ScreenShot/1.gif"></td>
+    <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/blob/zoomClone/src/assets/ScreenShot/2.gif"></td>
+     <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/blob/zoomClone/src/assets/ScreenShot/3.gif"></td>
   </tr>
 </table>
