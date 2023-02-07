@@ -56,7 +56,7 @@ const MeetingRoomTest = ({navigation, route}: any) => {
     });
   };
   useEffect(() => {
-    socketRef.current = io('https://clonezoomserver.onrender.com', {
+    socketRef.current = io('http://192.168.1.26:8000', {
       forceNew: true,
     });
     socketRef.current.on('connection', () => console.log('connection'));
@@ -157,7 +157,7 @@ const MeetingRoomTest = ({navigation, route}: any) => {
         return (
           listUser &&
           listUser.find(e => e.streamID === peer.id) && (
-            <View style={{padding: 20, backgroundColor: 'blue'}} key={index}>
+            <View style={{padding: 20}} key={index}>
               <RTCView
                 streamURL={peer?.toURL()}
                 style={[
