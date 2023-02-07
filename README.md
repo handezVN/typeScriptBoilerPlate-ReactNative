@@ -57,13 +57,11 @@
 
 <table>
   <tr>
-   <td>Light Mode</td>
-   <td>Dark Mode</td>
+
    <td>Original</td>
   </tr>
   <tr>
-    <td valign="top"><img width="250" height="500" src="https://github.com/ar9t4/react-native-boilerplate/blob/main/screenshots/light/lm.gif"></td>
-    <td valign="top"><img width="250" height="500" src="https://github.com/ar9t4/react-native-boilerplate/blob/main/screenshots/dark/dm.gif"></td>
+    
      <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/blob/master/src/assets/ScreenShot/ezgif.com-gif-maker.gif"></td>
   </tr>
 </table>
