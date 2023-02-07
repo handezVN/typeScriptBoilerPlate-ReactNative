@@ -10,21 +10,22 @@
 1. Clone this repo `git clone https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/zoomClone`
 2. Go to project's root directory, `cd react-native-boilerplate`
 3. **Optional -** Remove `.git` folder and replace/add your repo's `.git` folder
-4. Run `npm install`
+4. Run `yarn`
 5. **For iOS -** Run `cd ios` at first, `pod install` at second and `cd..` at third execution
-6. Start the **Metro bundler/packager** with `npx react-native start`
+6. Start the **Metro bundler/packager** with `yarn start`
 7. Connect an **Android / iOS** device or **Android Emulator / iOS Simulator**
-8. Run `npx react-native run-android` for **Android** or `npx react-native run-ios` for **iOS**
-9. Change Project name run `npx react-native-rename` `Project Name`
-   <br>
+8. Run `yarn android` for **Android** or `yarn ios` for **iOS**
+9. Open new terminal run `cd apiServer` and run `yarn`.
+10. Run `yarn start`.
+11. Change socket URL in config file at src/config
+    <br>
 
 ## Advanced:
 
 1. [Login with Auth0](https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/LoginWithAuth0)
 2. [Login With Firebase](<https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/LoginWithFireBase(Google)>)
 3. [Music Player](https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/MusicPlayer)
-4. [zoomClone](https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/zoomClone)
-5. [Welcome Screen and Login with Firebase Template (Google, Facebook)](https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/PlantEcommerce)
+4. [Welcome Screen and Login with Firebase Template (Google, Facebook)](https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/tree/PlantEcommerce)
    <br>
 
 ## Libraries and Node Packages:

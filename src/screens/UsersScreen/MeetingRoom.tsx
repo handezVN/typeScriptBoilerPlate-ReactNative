@@ -19,6 +19,7 @@ import {mediaDevices, MediaStream} from 'react-native-webrtc';
 import {RTCView} from 'react-native-webrtc';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Toast from 'react-native-toast-message';
+import {socketURL} from '../../Config/config';
 const MeetingRoomTest = ({navigation, route}: any) => {
   const [local, setLocal] = useState<any>();
   const socketRef: any = useRef();
@@ -56,7 +57,7 @@ const MeetingRoomTest = ({navigation, route}: any) => {
     });
   };
   useEffect(() => {
-    socketRef.current = io('http://192.168.1.26:8000', {
+    socketRef.current = io(socketURL, {
       forceNew: true,
     });
     socketRef.current.on('connection', () => console.log('connection'));
