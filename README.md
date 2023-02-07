@@ -55,16 +55,7 @@
 
 ## How it looks
 
-<table>
-  <tr>
-
-   <td>Original</td>
-  </tr>
-  <tr>
-    
-     <td valign="top"><img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/blob/master/src/assets/ScreenShot/ezgif.com-gif-maker.gif"></td>
-  </tr>
-</table>
+<img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/blob/master/src/assets/ScreenShot/ezgif.com-gif-maker.gif">
 <br>
 
 ## Contribution Guidelines
