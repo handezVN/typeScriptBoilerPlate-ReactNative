@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface BoilerPlateReactNativeTests : XCTestCase
+@interface CryptoTrackerTests : XCTestCase
 
 @end
 
-@implementation BoilerPlateReactNativeTests
+@implementation CryptoTrackerTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

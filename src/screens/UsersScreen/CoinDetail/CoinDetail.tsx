@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   Dimensions,
   Image,
   StyleSheet,
@@ -6,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {RobotoText} from 'components/RobotoText/RobotoText';
 import {CoinType} from '../CoinItem/CoinItem';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -16,11 +17,25 @@ import {DarkMode, LightMode} from 'constants/colors';
 import {LineChart} from 'react-native-wagmi-charts';
 import crypto from '../../../assets/DATA/crypto.json';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import * as api from 'src/services/request';
 const CoinDetail = ({route, navigation}: any) => {
   const {dark} = useTheme();
   const Colors = dark ? DarkMode.colors : LightMode.colors;
   const item: CoinType = route.params.coin;
-  console.log(item);
+  const [coin, setCoin] = useState();
+  const [coinMarketData, setCoinMarketData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const fetchData = async () => {
+    setLoading(true);
+    const data = await api.getDetailedCoinData(item.id);
+    const marketData = await api.getCoinMarketChart(item.id, 1);
+    setCoin(data);
+    setCoinMarketData(marketData);
+    setLoading(false);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   const stageColor =
     item.price_change_percentage_24h && item.price_change_percentage_24h < 0
       ? '#ea3943'
@@ -35,12 +50,12 @@ const CoinDetail = ({route, navigation}: any) => {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <TouchableOpacity onPress={() => navigation.navigate.goBack()}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="left" size={16} color={Colors.text}></Icon>
         </TouchableOpacity>
         <View style={{flexDirection: 'row'}}>
           <Image
-            source={{uri: item.image}}
+            source={{uri: coin?.image.thumb}}
             style={{height: 20, width: 20, borderRadius: 100}}></Image>
           <RobotoText style={{marginHorizontal: 5}}>
             {item.symbol.toUpperCase()}
@@ -73,7 +88,7 @@ const CoinDetail = ({route, navigation}: any) => {
         <RobotoText>{item.name}</RobotoText>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <RobotoText style={{fontSize: 20}}>
-            {item.current_price?.toFixed(2)} US$
+            {coin.market_data.current_price.usd.toFixed(2)} US$
           </RobotoText>
           <View style={[styles.coinBox, {backgroundColor: stageColor}]}>
             <Icon name="caretdown" size={10} color={Colors.text}></Icon>
@@ -85,12 +100,11 @@ const CoinDetail = ({route, navigation}: any) => {
       </>
     );
   };
-  const Chart = ({item}: {item: CoinType}) => {
-    const data = crypto.prices.map(price => ({
-      timestamp: price[0],
-      value: price[1],
+  const Chart = ({item}: {item: any}) => {
+    const data = item.prices.map((x: any) => ({
+      timestamp: x[0],
+      value: x[1],
     }));
-    const {width: SIZE} = Dimensions.get('window');
     return (
       <GestureHandlerRootView>
         <LineChart.Provider data={data}>
@@ -107,11 +121,14 @@ const CoinDetail = ({route, navigation}: any) => {
       </GestureHandlerRootView>
     );
   };
+  if (loading || !coin || !coinMarketData) {
+    return <ActivityIndicator size={'large'} />;
+  }
   return (
     <View style={{padding: 20}}>
       <CoinDetailHeader item={item} />
       <RenderTitle item={item} />
-      <Chart item={item} />
+      <Chart item={coinMarketData} />
     </View>
   );
 };

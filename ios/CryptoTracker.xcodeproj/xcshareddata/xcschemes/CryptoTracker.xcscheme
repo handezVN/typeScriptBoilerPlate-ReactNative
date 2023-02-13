@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "BoilerPlateReactNative.app"
-               BlueprintName = "BoilerPlateReactNative"
-               ReferencedContainer = "container:BoilerPlateReactNative.xcodeproj">
+               BuildableName = "CryptoTracker.app"
+               BlueprintName = "CryptoTracker"
+               ReferencedContainer = "container:CryptoTracker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "BoilerPlateReactNativeTests.xctest"
-               BlueprintName = "BoilerPlateReactNativeTests"
-               ReferencedContainer = "container:BoilerPlateReactNative.xcodeproj">
+               BuildableName = "CryptoTrackerTests.xctest"
+               BlueprintName = "CryptoTrackerTests"
+               ReferencedContainer = "container:CryptoTracker.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BoilerPlateReactNative.app"
-            BlueprintName = "BoilerPlateReactNative"
-            ReferencedContainer = "container:BoilerPlateReactNative.xcodeproj">
+            BuildableName = "CryptoTracker.app"
+            BlueprintName = "CryptoTracker"
+            ReferencedContainer = "container:CryptoTracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BoilerPlateReactNative.app"
-            BlueprintName = "BoilerPlateReactNative"
-            ReferencedContainer = "container:BoilerPlateReactNative.xcodeproj">
+            BuildableName = "CryptoTracker.app"
+            BlueprintName = "CryptoTracker"
+            ReferencedContainer = "container:CryptoTracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
