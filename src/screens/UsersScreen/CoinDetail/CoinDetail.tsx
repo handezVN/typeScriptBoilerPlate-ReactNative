@@ -22,7 +22,7 @@ const CoinDetail = ({route, navigation}: any) => {
   const {dark} = useTheme();
   const Colors = dark ? DarkMode.colors : LightMode.colors;
   const item: CoinType = route.params.coin;
-  const [coin, setCoin] = useState();
+  const [coin, setCoin] = useState<any>();
   const [coinMarketData, setCoinMarketData] = useState(null);
   const [loading, setLoading] = useState(false);
   const fetchData = async () => {

@@ -1,9 +1,10 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {memo} from 'react';
 import {RobotoText} from 'components/RobotoText/RobotoText';
 import {useNavigation, useTheme} from '@react-navigation/native';
 import {DarkMode, LightMode} from 'constants/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {useWatchList} from 'context/CoinsContext';
 export type CoinType = {
   id: string;
   symbol: string;
@@ -36,6 +37,16 @@ export type CoinType = {
 const CoinItem = ({item, navigation}: {item: CoinType; navigation: any}) => {
   const {dark} = useTheme();
   const Colors = dark ? DarkMode.colors : LightMode.colors;
+  const {
+    price_change_percentage_24h,
+    id,
+    symbol,
+    image,
+    name,
+    market_cap_rank,
+    current_price,
+    market_cap,
+  } = item;
   const normalizeMarketCap = (marketCap: any) => {
     if (marketCap > 1_000_000_000_000)
       return `${Math.floor(marketCap / 1_000_000_000_000)} T`;
@@ -45,30 +56,29 @@ const CoinItem = ({item, navigation}: {item: CoinType; navigation: any}) => {
     if (marketCap > 1_000) return `${Math.floor(marketCap / 1_000)} K`;
     return marketCap;
   };
+  const {watchList, storeWatchList, removeWatchList} = useWatchList();
   const stageColor =
-    item.price_change_percentage_24h && item.price_change_percentage_24h < 0
+    price_change_percentage_24h && price_change_percentage_24h < 0
       ? '#ea3943'
-      : '#16c784';
+      : '#16c784' || Colors.text;
   const goDetail = () => {
     navigation.navigate('CoinDetail', {coin: item});
   };
-
   return (
-    <TouchableOpacity
+    <View
       style={{
         flexDirection: 'row',
         padding: 20,
         width: '100%',
         justifyContent: 'space-between',
-      }}
-      onPress={goDetail}>
-      <View style={{flexDirection: 'row'}}>
+      }}>
+      <TouchableOpacity onPress={goDetail} style={{flexDirection: 'row'}}>
         <Image
-          source={{uri: item.image}}
+          source={{uri: image}}
           style={{height: 40, width: 40, borderRadius: 100}}
         />
         <View style={{marginLeft: 10}}>
-          <RobotoText>{item.name}</RobotoText>
+          <RobotoText>{name}</RobotoText>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <View
               style={{
@@ -79,32 +89,48 @@ const CoinItem = ({item, navigation}: {item: CoinType; navigation: any}) => {
                 justifyContent: 'center',
                 borderRadius: 5,
               }}>
-              <RobotoText>{item.market_cap_rank}</RobotoText>
+              <RobotoText>{market_cap_rank}</RobotoText>
             </View>
             <RobotoText style={{color: 'grey', marginLeft: 5}}>
-              {item.symbol && item.symbol.toUpperCase()}
+              {symbol && symbol.toUpperCase()}
             </RobotoText>
             <View style={{justifyContent: 'center', marginHorizontal: 5}}>
               <Icon name="caretdown" size={12} color={stageColor}></Icon>
             </View>
             <RobotoText style={{color: 'grey', marginLeft: 5}}>
-              {item.price_change_percentage_24h?.toFixed(2)}%
+              {price_change_percentage_24h?.toFixed(2)}%
             </RobotoText>
           </View>
         </View>
+      </TouchableOpacity>
+      <View style={{flexDirection: 'row'}}>
+        <View>
+          <RobotoText style={{alignSelf: 'flex-end'}}>
+            {current_price} $
+          </RobotoText>
+          <RobotoText style={{color: 'grey', alignSelf: 'flex-end'}}>
+            MCap {normalizeMarketCap(market_cap)}
+          </RobotoText>
+        </View>
+        <TouchableOpacity
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginLeft: 10,
+          }}
+          onPress={() =>
+            watchList.includes(id) ? removeWatchList(id) : storeWatchList(id)
+          }>
+          <Icon
+            name="star"
+            size={20}
+            color={watchList.includes(id) ? 'yellow' : Colors.primary}></Icon>
+        </TouchableOpacity>
       </View>
-      <View>
-        <RobotoText style={{alignSelf: 'flex-end'}}>
-          {item.current_price} $
-        </RobotoText>
-        <RobotoText style={{color: 'grey', alignSelf: 'flex-end'}}>
-          MCap {normalizeMarketCap(item.market_cap)}
-        </RobotoText>
-      </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
-export default CoinItem;
+export default memo(CoinItem);
 
 const styles = StyleSheet.create({});

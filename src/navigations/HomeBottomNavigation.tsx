@@ -9,6 +9,7 @@ import {useTheme} from '@react-navigation/native';
 import UserStackNavigation from './UserStackNavigation';
 import SettingsStackNavigation from './SettingsStackNavigation';
 import {DarkMode, LightMode} from 'constants/colors';
+import WatchListStackNavigation from './WatchListStackNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,8 +29,8 @@ const HomeBottomNavigation = () => {
             iconName = focused ? 'people' : 'people-outline';
           } else if (route.name === 'SettingsStack') {
             iconName = focused ? 'settings' : 'settings-outline';
-          } else if (route.name === 'Feedback') {
-            iconName = focused ? 'newspaper' : 'newspaper-outline';
+          } else if (route.name === 'WatchListStack') {
+            iconName = focused ? 'star' : 'star-outline';
           } else if (route.name === 'More') {
             iconName = focused ? 'apps' : 'apps-outline';
           }
@@ -42,6 +43,11 @@ const HomeBottomNavigation = () => {
         name="UsersStack"
         component={UserStackNavigation}
         options={{headerShown: false, title: `${t('users')}`}}
+      />
+      <Tab.Screen
+        name="WatchListStack"
+        component={WatchListStackNavigation}
+        options={{headerShown: false, title: `${t('watchList')}`}}
       />
       <Tab.Screen
         name="SettingsStack"

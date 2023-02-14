@@ -43,6 +43,7 @@ const DarkModeTheme = {
   ...DarkMode,
 };
 import i18n from './i18n/config';
+import WatchlistContext from './Contexts/CoinsContext';
 const AppRoot = () => {
   const colorScheme = useColorScheme();
 
@@ -85,7 +86,9 @@ const AppRoot = () => {
           themeToSet === 'dark' ? 'light-content' : 'dark-content'
         }></StatusBar>
       <Loader visible={isLoading} />
-      <HomeBottomNavigation></HomeBottomNavigation>
+      <WatchlistContext>
+        <HomeBottomNavigation />
+      </WatchlistContext>
     </NavigationContainer>
   );
 };
