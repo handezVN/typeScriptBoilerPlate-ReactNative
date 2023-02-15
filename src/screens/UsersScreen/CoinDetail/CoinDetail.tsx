@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {memo, useCallback, useEffect, useState} from 'react';
 import {RobotoText} from 'components/RobotoText/RobotoText';
 import {CoinType} from '../CoinItem/CoinItem';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -18,6 +18,9 @@ import {LineChart} from 'react-native-wagmi-charts';
 import crypto from '../../../assets/DATA/crypto.json';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import * as api from 'src/services/request';
+import CoinDetailHeader from './CoinDetailHeader';
+import RenderTitle from './RenderTitle';
+import Chart from './Chart';
 const CoinDetail = ({route, navigation}: any) => {
   const {dark} = useTheme();
   const Colors = dark ? DarkMode.colors : LightMode.colors;
@@ -25,11 +28,18 @@ const CoinDetail = ({route, navigation}: any) => {
   const [coin, setCoin] = useState<any>();
   const [coinMarketData, setCoinMarketData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [filter, setFilter] = useState(0);
   const fetchData = async () => {
     setLoading(true);
     const data = await api.getDetailedCoinData(item.id);
     const marketData = await api.getCoinMarketChart(item.id, 1);
     setCoin(data);
+    setCoinMarketData(marketData);
+    setLoading(false);
+  };
+  const fetchDataMarket = async (number: string | number, daily?: string) => {
+    setLoading(true);
+    const marketData = await api.getCoinMarketChart(item.id, number, daily);
     setCoinMarketData(marketData);
     setLoading(false);
   };
@@ -40,95 +50,96 @@ const CoinDetail = ({route, navigation}: any) => {
     item.price_change_percentage_24h && item.price_change_percentage_24h < 0
       ? '#ea3943'
       : '#16c784';
-  const CoinDetailHeader = ({item}: {item: CoinType}) => {
+
+  const FilterChart = () => {
+    console.log('Render FilterChart');
+
+    const FilterData = [
+      {
+        title: '24h',
+        onPress: () => {
+          fetchDataMarket(1);
+        },
+      },
+      {
+        title: '7d',
+        onPress: () => {
+          fetchDataMarket(7);
+        },
+      },
+      {
+        title: '30d',
+        onPress: () => {
+          fetchDataMarket(30);
+        },
+      },
+      {
+        title: '1y',
+        onPress: () => {
+          fetchDataMarket(365, 'daily');
+        },
+      },
+      {
+        title: 'All',
+        onPress: () => {
+          fetchDataMarket('max', 'daily');
+        },
+      },
+      {
+        title: 'line',
+        onPress: () => {},
+      },
+    ];
     return (
       <View
         style={{
-          height: 60,
-          width: '100%',
           flexDirection: 'row',
+          backgroundColor: 'grey',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          padding: 10,
+          borderRadius: 5,
         }}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name="left" size={16} color={Colors.text}></Icon>
-        </TouchableOpacity>
-        <View style={{flexDirection: 'row'}}>
-          <Image
-            source={{uri: coin?.image.thumb}}
-            style={{height: 20, width: 20, borderRadius: 100}}></Image>
-          <RobotoText style={{marginHorizontal: 5}}>
-            {item.symbol.toUpperCase()}
-          </RobotoText>
-
-          <View
-            style={{
-              backgroundColor: Colors.backgroundColor,
-              paddingHorizontal: 5,
-              borderRadius: 5,
-            }}>
-            <RobotoText>#{item.market_cap_rank}</RobotoText>
-          </View>
-        </View>
-        <View
-          style={{
-            borderRadius: 50,
-            borderColor: Colors.text,
-            borderWidth: 1,
-            padding: 4,
-          }}>
-          <Icon name="user" size={16} color={Colors.text}></Icon>
-        </View>
+        {FilterData.map((e, index) => {
+          return (
+            <TouchableOpacity
+              style={
+                index === filter ? styles.filterActive : styles.filterInActive
+              }
+              key={index}
+              onPress={() => {
+                setFilter(index);
+                e.onPress();
+              }}>
+              <Text
+                style={[
+                  {color: 'white', textAlign: 'center'},
+                  index !== filter && {color: '#FAFAFAF'},
+                ]}>
+                {e.title}
+              </Text>
+            </TouchableOpacity>
+          );
+        })}
       </View>
     );
   };
-  const RenderTitle = ({item}: {item: CoinType}) => {
-    return (
-      <>
-        <RobotoText>{item.name}</RobotoText>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <RobotoText style={{fontSize: 20}}>
-            {coin.market_data.current_price.usd.toFixed(2)} US$
-          </RobotoText>
-          <View style={[styles.coinBox, {backgroundColor: stageColor}]}>
-            <Icon name="caretdown" size={10} color={Colors.text}></Icon>
-            <RobotoText style={{marginLeft: 5}}>
-              {item.price_change_percentage_24h?.toFixed(2)}%
-            </RobotoText>
-          </View>
-        </View>
-      </>
-    );
-  };
-  const Chart = ({item}: {item: any}) => {
-    const data = item.prices.map((x: any) => ({
-      timestamp: x[0],
-      value: x[1],
-    }));
-    return (
-      <GestureHandlerRootView>
-        <LineChart.Provider data={data}>
-          <LineChart>
-            <LineChart.Path color={stageColor} />
-            <LineChart.CursorCrosshair color={Colors.text}>
-              <LineChart.Tooltip textStyle={{color: Colors.text}} />
-              <LineChart.Tooltip position="bottom">
-                <LineChart.DatetimeText style={{color: Colors.text}} />
-              </LineChart.Tooltip>
-            </LineChart.CursorCrosshair>
-          </LineChart>
-        </LineChart.Provider>
-      </GestureHandlerRootView>
-    );
-  };
-  if (loading || !coin || !coinMarketData) {
-    return <ActivityIndicator size={'large'} />;
-  }
+
   return (
     <View style={{padding: 20}}>
-      <CoinDetailHeader item={item} />
-      <RenderTitle item={item} />
-      <Chart item={coinMarketData} />
+      {loading ||
+        !coin ||
+        (!coinMarketData && (
+          <View style={styles.loading}>
+            <ActivityIndicator size={'large'} />
+          </View>
+        ))}
+
+      <GestureHandlerRootView>
+        <CoinDetailHeader item={item} navigation={navigation} />
+        <FilterChart />
+        <RenderTitle item={item} coin={coin} stageColor={stageColor} />
+        <Chart item={coinMarketData} stageColor={stageColor} />
+      </GestureHandlerRootView>
     </View>
   );
 };
@@ -142,5 +153,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 5,
     flexDirection: 'row',
+  },
+  filterActive: {
+    backgroundColor: 'black',
+    padding: 5,
+    width: 40,
+    borderRadius: 5,
+  },
+  filterInActive: {
+    padding: 5,
+    width: 40,
+    borderRadius: 5,
+  },
+  loading: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

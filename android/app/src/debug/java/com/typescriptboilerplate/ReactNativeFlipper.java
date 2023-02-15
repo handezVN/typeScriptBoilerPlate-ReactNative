@@ -23,6 +23,7 @@ import com.facebook.react.ReactInstanceEventListener;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.modules.network.NetworkingModule;
+import tech.bam.rnperformance.flipper.RNPerfMonitorPlugin;
 import okhttp3.OkHttpClient;
 
 public class ReactNativeFlipper {
@@ -35,7 +36,7 @@ public class ReactNativeFlipper {
       client.addPlugin(new DatabasesFlipperPlugin(context));
       client.addPlugin(new SharedPreferencesFlipperPlugin(context));
       client.addPlugin(CrashReporterPlugin.getInstance());
-
+      client.addPlugin(new RNPerfMonitorPlugin(reactInstanceManager));
       NetworkFlipperPlugin networkFlipperPlugin = new NetworkFlipperPlugin();
       NetworkingModule.setCustomClientBuilder(
           new NetworkingModule.CustomClientBuilder() {
@@ -67,6 +68,7 @@ public class ReactNativeFlipper {
             });
       } else {
         client.addPlugin(new FrescoFlipperPlugin());
+        
       }
     }
   }

@@ -6224,6 +6224,11 @@ react-native-codegen@^0.70.6:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
+react-native-flipper-performance-plugin@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-flipper-performance-plugin/-/react-native-flipper-performance-plugin-0.3.1.tgz#969aea65eb6e6504ee29caab7bf546c75322f817"
+  integrity sha512-NDf5VCTqYPUUihvmW5A/scJbjHWZpAxC9FE1kfgFCPsHENjH9EVJxk+7XlLN608dEtHOtZdcWY0HZZT8XLjr6Q==
+
 react-native-gesture-handler@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.9.0.tgz#2f63812e523c646f25b9ad660fc6f75948e51241"
