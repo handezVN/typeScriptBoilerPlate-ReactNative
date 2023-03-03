@@ -79,10 +79,10 @@ const AppRoot = () => {
 
   return (
     <NavigationContainer
-      theme={themeToSet === 'dark' ? DarkModeTheme : LightModeTheme}>
+      theme={themeToSet === 'light' ? LightModeTheme : DarkModeTheme}>
       <StatusBar
         barStyle={
-          themeToSet === 'dark' ? 'light-content' : 'dark-content'
+          themeToSet === 'light' ? 'dark-content' : 'light-content'
         }></StatusBar>
       <Loader visible={isLoading} />
       <HomeBottomNavigation></HomeBottomNavigation>
@@ -91,12 +91,6 @@ const AppRoot = () => {
 };
 const initI18n = i18n;
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
     <Provider store={store}>
       <AppRoot />

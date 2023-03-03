@@ -12,7 +12,7 @@ export const LightMode = {
   export  const DarkMode = {
     colors: {
       primary: '#FFFFFF',
-      background: '#1D1D1D',
+      background: '#181A20',
       card: '#343434',
       text: '#FFFFFF',
       border: 'rgb(199, 199, 204)',
