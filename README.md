@@ -52,18 +52,3 @@
 10. [React Native Vector Icons](https://www.npmjs.com/package/react-native-vector-icons)
 11. [React Native Async Storage](https://github.com/react-native-async-storage/async-storage)
     <br>
-
-## How it looks
-
-<img width="250" height="500" src="https://github.com/handezVN/typeScriptBoilerPlate-ReactNative/blob/master/src/assets/ScreenShot/ezgif.com-gif-maker.gif">
-<br>
-
-## Contribution Guidelines
-
-**PR's** created as per [Offical Guidelines](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) are always welcome.
-<br>
-
-## Preferences
-
-<br>
-Modify this Project from JavaScript to TypeScript from [react-native-boilerplate](https://github.com/ar9t4/react-native-boilerplate).
