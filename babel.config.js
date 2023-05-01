@@ -7,6 +7,7 @@ module.exports = {
       {
         root: ['.'],
         alias: {
+          src: './src',
           components: './src/components',
           constants: './src/constants',
           i18n: './src/i18n',
@@ -14,6 +15,7 @@ module.exports = {
           screens: './src/screens',
           store: './src/store',
           utils: './src/utils',
+          nativeInterface: './src/nativeInterface',
         },
       },
     ],

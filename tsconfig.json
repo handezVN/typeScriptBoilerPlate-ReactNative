@@ -12,11 +12,25 @@
       "screens/*": ["./src/screens/*"],
       "store/*": ["./src/store/*"],
       "utils/*": ["./src/utils/*"],
-    },
+      // "nativeInterface/*" : ["./src/nativeInterface/*"]
+        },
     "typeRoots": ["@types", "node_modules/@types"],
     /* Completeness */
     "skipLibCheck": true         ,
-                 
+    "plugins": [{
+        "name": "tsconfig-paths",
+        "baseUrl": ".",
+        "paths": {
+          "components/*" : ["./src/components/*"],
+          "constants/*": ["./src/constants/*"],
+          "i18n/*": ["./src/i18n/*"],
+          "navigations/*": ["./src/navigations/*"],
+          "screens/*": ["./src/screens/*"],
+          "store/*": ["./src/store/*"],
+          "utils/*": ["./src/utils/*"],
+          // "nativeInterface/*" : ["./src/nativeInterface/*"]
+            },
+      }],           
   },
   "include": ["./src", "./scripts", "App.tsx"]          /* Skip type checking all .d.ts files. */
 }
